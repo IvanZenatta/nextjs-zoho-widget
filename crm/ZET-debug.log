@@ -1,0 +1,32 @@
+[error] [2025-10-23T19:33:39.694Z] : × Below file formats are not allowed in Sigma
+[info] [2025-10-23T19:33:39.697Z] :  ==> app\favicon.ico
+[info] [2025-10-23T19:33:39.698Z] :  ==> app\_next\static\media\favicon.0b3bf435.ico
+[info] [2025-10-23T19:33:39.698Z] : Note - File formats that can be packed are: txt, md, xml, dre, jpg, jpeg, png, gif, css, js, html, json, mp3, svg, woff, ttf, eot, webm, mp4, and woff2
+[error] [2025-10-23T19:33:39.706Z] : × Below file formats are not allowed in Sigma
+[info] [2025-10-23T19:33:39.706Z] :  ==> app\favicon.ico
+[info] [2025-10-23T19:33:39.707Z] :  ==> app\_next\static\media\favicon.0b3bf435.ico
+[info] [2025-10-23T19:33:39.708Z] : Note - File formats that can be packed are: txt, md, xml, dre, jpg, jpeg, png, gif, css, js, html, json, mp3, svg, woff, ttf, eot, webm, mp4, and woff2
+[error] [2025-10-23T19:51:12.224Z] : × Below file formats are not allowed in Sigma
+[info] [2025-10-23T19:51:12.227Z] :  ==> app\favicon.ico
+[info] [2025-10-23T19:51:12.227Z] :  ==> app\_next\static\media\favicon.0b3bf435.ico
+[info] [2025-10-23T19:51:12.228Z] : Note - File formats that can be packed are: txt, md, xml, dre, jpg, jpeg, png, gif, css, js, html, json, mp3, svg, woff, ttf, eot, webm, mp4, and woff2
+[error] [2025-10-23T19:51:12.235Z] : × Below file formats are not allowed in Sigma
+[info] [2025-10-23T19:51:12.236Z] :  ==> app\favicon.ico
+[info] [2025-10-23T19:51:12.237Z] :  ==> app\_next\static\media\favicon.0b3bf435.ico
+[info] [2025-10-23T19:51:12.238Z] : Note - File formats that can be packed are: txt, md, xml, dre, jpg, jpeg, png, gif, css, js, html, json, mp3, svg, woff, ttf, eot, webm, mp4, and woff2
+[error] [2025-10-23T19:54:47.915Z] : × Below file formats are not allowed in Sigma
+[info] [2025-10-23T19:54:47.918Z] :  ==> app\favicon.ico
+[info] [2025-10-23T19:54:47.919Z] :  ==> app\_next\static\media\favicon.0b3bf435.ico
+[info] [2025-10-23T19:54:47.921Z] : Note - File formats that can be packed are: txt, md, xml, dre, jpg, jpeg, png, gif, css, js, html, json, mp3, svg, woff, ttf, eot, webm, mp4, and woff2
+[error] [2025-10-23T19:54:47.929Z] : × Below file formats are not allowed in Sigma
+[info] [2025-10-23T19:54:47.930Z] :  ==> app\favicon.ico
+[info] [2025-10-23T19:54:47.931Z] :  ==> app\_next\static\media\favicon.0b3bf435.ico
+[info] [2025-10-23T19:54:47.931Z] : Note - File formats that can be packed are: txt, md, xml, dre, jpg, jpeg, png, gif, css, js, html, json, mp3, svg, woff, ttf, eot, webm, mp4, and woff2
+[error] [2025-10-23T19:56:23.783Z] : × Below file formats are not allowed in Sigma
+[info] [2025-10-23T19:56:23.786Z] :  ==> app\favicon.ico
+[info] [2025-10-23T19:56:23.786Z] :  ==> app\_next\static\media\favicon.0b3bf435.ico
+[info] [2025-10-23T19:56:23.787Z] : Note - File formats that can be packed are: txt, md, xml, dre, jpg, jpeg, png, gif, css, js, html, json, mp3, svg, woff, ttf, eot, webm, mp4, and woff2
+[error] [2025-10-23T19:56:23.795Z] : × Below file formats are not allowed in Sigma
+[info] [2025-10-23T19:56:23.796Z] :  ==> app\favicon.ico
+[info] [2025-10-23T19:56:23.797Z] :  ==> app\_next\static\media\favicon.0b3bf435.ico
+[info] [2025-10-23T19:56:23.797Z] : Note - File formats that can be packed are: txt, md, xml, dre, jpg, jpeg, png, gif, css, js, html, json, mp3, svg, woff, ttf, eot, webm, mp4, and woff2

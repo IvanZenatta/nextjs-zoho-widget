@@ -2,6 +2,7 @@
 
 # dependencies
 **/node_modules
+/crm/app
 /.pnp
 .pnp.*
 .yarn/*

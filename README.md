@@ -1,36 +1,95 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Zoho CRM Widget Starter
 
-## Getting Started
+A static, client-side Zoho CRM widget built with **Vite + React + TypeScript + Tailwind v4**,
+wired into the **Zoho Extension Toolkit (ZET)** packaging flow.
 
-First, run the development server:
+## Why this stack (and not Next.js)
+
+A Zoho widget is a static bundle. ZET serves the `app/` folder, you test locally on
+port 5000, then `zet validate` / `zet pack` produce the zip you upload. There is no
+server in that runtime, the widget loads `widget.html` plus a JS/CSS bundle and talks
+to Zoho through the embedded app SDK on the client.
+
+Next.js exists for the server side (SSR, server components, API routes). A static export
+strips all of that out, leaving you carrying the framework's weight for none of its
+benefit. Vite is purpose-built for static SPA bundles, so it drops straight into ZET.
+
+## Prerequisites
+
+- Node 18+ and npm
+- ZET CLI installed globally:
+  ```bash
+  npm install -g zoho-extension-toolkit
+  zet -v
+  ```
+
+## Install
+
+```bash
+npm install
+```
+
+## Develop (fast loop, Vite HMR)
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Opens Vite on http://localhost:5173. This runs **outside** the CRM iframe, so
+`window.ZOHO` is absent and the widget shows "standalone" mode (no record context).
+Use this loop for building UI and component logic quickly.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+```
 
-## Learn More
+Type-checks, then bundles into `app/` as `app/widget.html` + `app/assets/...`.
+Note the assets use **relative** paths (`./assets/...`) because `vite.config.ts`
+sets `base: './'`. This is the single most common reason widgets render blank inside
+Zoho, so do not change it.
 
-To learn more about Next.js, take a look at the following resources:
+## Test inside Zoho
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run build      # produce the app/ folder first
+zet run            # serves on port 5000
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+`zet run` serves the built widget at http://127.0.0.1:5000/app/widget.html. Load it
+into your sandbox to see live `PageLoad` context (Module + Record ID populate the card).
 
-## Deploy on Vercel
+## Validate and pack for upload
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm run validate   # build + zet validate
+npm run pack       # build + zet pack -> produces the upload zip
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Key files
+
+| File | Role |
+| --- | --- |
+| `widget.html` | Vite entry. Loads the Zoho SDK from CDN + the React bundle. Builds to `app/widget.html`. |
+| `vite.config.ts` | `base: './'`, output to `app/`, entry kept as `widget.html`. |
+| `plugin-manifest.json` | ZET extension config. Defines widget location, currently `crm.detailview.actions`. |
+| `src/zoho.ts` | Wraps the SDK `PageLoad` + `init()` handshake into one `await initZoho()`. |
+| `src/global.d.ts` | TypeScript types for the `window.ZOHO` namespace. Extend as you call more APIs. |
+| `src/App.tsx` | Placeholder UI showing init status and the record context. |
+
+## Changing the widget location
+
+Edit the `location` field in `plugin-manifest.json` (e.g. `crm.detailview.rightpanel`,
+`crm.relatedlist`, a button location, etc.). If Zoho updates the manifest schema, run
+`zet init` in a scratch folder to see the current canonical format and reconcile.
+
+## Next steps
+
+In `src/App.tsx`, once you have `entity` and `entityId` from the context, call:
+
+```ts
+const res = await window.ZOHO!.CRM.API.getRecord({ Entity: entity, RecordID: entityId })
+```
+
+to load the full record, then build your UI around it.

@@ -1,0 +1,14 @@
+{
+  "locale": ["en"],
+  "service": "CRM",
+  "modules": {
+    "widgets": [
+      {
+        "location": "crm.detailview.actions",
+        "url": "/app/widget.html",
+        "name": "starter_widget"
+      }
+    ]
+  },
+  "config": []
+}

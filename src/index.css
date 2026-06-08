@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+/* Tailwind v4 theme tokens. Adjust the accent to match the client's brand. */
+@theme {
+  --color-ink: #1c2433;
+  --color-muted: #5b6577;
+  --color-accent: #e4521b;
+  --color-surface: #ffffff;
+  --color-line: #e6e9ef;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--color-ink);
+  background: transparent;
+  -webkit-font-smoothing: antialiased;
+}
